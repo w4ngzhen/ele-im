@@ -1,6 +1,6 @@
 <template>
   <div>
-    加载中，请稍后
+
   </div>
 </template>
 
@@ -8,9 +8,13 @@
 export default {
   name: "Portal",
   created() {
+    let $loading = this.$loading({
+      text: '加载中，请稍后'
+    });
     setTimeout(() => {
+      $loading.close();
       this.$router.push('/login');
-    }, 3000);
+    }, 1000);
   }
 };
 </script>

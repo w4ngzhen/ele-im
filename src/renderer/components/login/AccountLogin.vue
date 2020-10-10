@@ -1,41 +1,41 @@
 <template>
   <div>
-    <el-form
-        hide-required-asterisk
-        ref="loginForm"
-        label-width="80px"
-        style="padding-right: 80px"
-        :model="loginModel">
-      <el-form-item
-          :rules="{ required: true, message: '请填写用户名', trigger: 'blur' }"
-          label="用户名"
-          prop="username">
-        <el-select
-            v-model="loginModel.username"
-            filterable
-            allow-create
-            clearable
-            style="width: 100%">
-          <el-option
-              v-for="user in userInfos"
-              :key="user.username"
-              :value="user.username"
-              :label="user.username"/>
-        </el-select>
-      </el-form-item>
-      <el-form-item
-          label="密码"
-          :rules="{ required: true, message: '请填写密码', trigger: 'blur' }"
-          prop="password">
-        <el-input
-            show-password
-            v-model="loginModel.password"/>
-      </el-form-item>
-    </el-form>
+    <el-row>
+      <el-form
+          hide-required-asterisk
+          ref="loginForm"
+          label-width="80px"
+          :model="loginModel">
+        <el-form-item
+            :rules="{ required: true, message: '请填写用户名', trigger: 'blur' }"
+            label="用户名"
+            prop="username">
+          <el-select
+              v-model="loginModel.username"
+              filterable
+              allow-create
+              clearable
+              style="width: 100%">
+            <el-option
+                v-for="user in userInfos"
+                :key="user.username"
+                :value="user.username"
+                :label="user.username"/>
+          </el-select>
+        </el-form-item>
+        <el-form-item
+            label="密码"
+            :rules="{ required: true, message: '请填写密码', trigger: 'blur' }"
+            prop="password">
+          <el-input
+              show-password
+              v-model="loginModel.password"/>
+        </el-form-item>
+      </el-form>
+    </el-row>
     <el-row
         type="flex"
-        justify="center"
-        style="padding: 0 20px 0 20px">
+        justify="center">
       <el-button
           @click="login"
           type="primary"
