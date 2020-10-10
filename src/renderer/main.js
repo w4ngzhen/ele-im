@@ -10,6 +10,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 import MainLayout from "./components/layout/MainLayout";
 import LoginLayout from "./components/layout/LoginLayout";
 
+import 'font-awesome/css/font-awesome.css';
+
 const ipcRenderer = require('electron').ipcRenderer;
 
 Vue.use(ElementUI);

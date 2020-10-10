@@ -1,7 +1,5 @@
 <template>
-  <el-button>
-
-  </el-button>
+  <el-button icon="fa fa-spinner"></el-button>
 </template>
 
 <script>
