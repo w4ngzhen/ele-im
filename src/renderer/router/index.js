@@ -13,7 +13,7 @@ export default new Router({
       name: 'portal',
       meta: {
         authRequired: false,
-        layout: 'login-layout'
+        layout: 'empty-layout'
       },
       component: Portal
     },
