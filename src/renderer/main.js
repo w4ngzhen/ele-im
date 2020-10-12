@@ -23,6 +23,7 @@ if (!process.env.IS_WEB) Vue.use(require('vue-electron'));
 Vue.http = Vue.prototype.$http = axios;
 Vue.config.productionTip = false;
 Vue.prototype.$ipcRenderer = ipcRenderer; // 设置渲染进程
+Vue.prototype._ = require('lodash');
 
 Vue.component('main-layout', MainLayout);
 Vue.component('login-layout', LoginLayout);

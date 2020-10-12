@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from "../view/login/Login";
-import Main from "../view/main/Main";
 import Portal from "../view/portal/Portal";
+import Chat from "../view/chat/Chat";
+import AddressBook from "../view/address-book/AddressBook";
+import Settings from "../view/settings/Settings";
 
 Vue.use(Router);
 
@@ -27,9 +29,19 @@ export default new Router({
       component: Login
     },
     {
-      path: '/main',
-      name: 'main-page',
-      component: Main
+      path: '/chat',
+      name: 'chat',
+      component: Chat
+    },
+    {
+      path: '/address-book',
+      name: 'address-book',
+      component: AddressBook
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: Settings
     },
     {
       path: '*',

@@ -1,6 +1,7 @@
 <template>
   <el-menu default-active="1-4-1"
            style="width: 100%;text-align: center"
+           router
            class="aside"
            :collapse="true">
     <el-menu-item v-for="menu in menus"
@@ -20,9 +21,9 @@ export default {
   data() {
     return {
       menus: [
-        {index: '1', icon: 'fa fa-commenting-o', tip: '聊天'},
-        {index: '2', icon: 'fa fa fa-address-book-o', tip: '通讯录'},
-        {index: '3', icon: 'fa fa-cog', tip: '设置'},
+        {index: 'chat', icon: 'fa fa-commenting-o', tip: '聊天'},
+        {index: 'address-book', icon: 'fa fa fa-address-book-o', tip: '通讯录'},
+        {index: 'settings', icon: 'fa fa-cog', tip: '设置'},
       ]
     };
   },

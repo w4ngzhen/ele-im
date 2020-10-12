@@ -68,7 +68,7 @@ export default {
       }
       // remote check todo
       this.$ipcRenderer.send('enter-main-page');
-      this.$router.push('/main');
+      this.$router.push('/chat');
     }
   },
 };

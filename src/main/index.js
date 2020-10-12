@@ -1,5 +1,4 @@
 import {app, BrowserWindow, Menu} from 'electron';
-import router from './router';
 
 /**
  * Set `__static` path to static files in production
@@ -17,7 +16,7 @@ const winURL = process.env.NODE_ENV === 'development'
 const ipcMain = require('electron').ipcMain;
 
 ipcMain.on('enter-main-page', () => {
-    mainWindow.setSize(1024, 768);
+    mainWindow.setSize(900, 600);
     mainWindow.setResizable(true);
 });
 
