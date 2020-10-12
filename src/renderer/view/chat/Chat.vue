@@ -9,23 +9,25 @@
       </div>
       <div class="chat-list">
         <div class="chat-list-item-wrapper"
-             v-for="item in chatListItems">
+             v-for="item in chatListItems"
+             @click="chatListItemClick(item)">
           <chat-list-item :data="item"/>
         </div>
       </div>
     </div>
-    <div class="chat-panel">
-      聊天对话面板
+    <div class="chat-panel-div">
+      <chat-panel v-if="currentChatInfo" :chat-info="currentChatInfo"/>
     </div>
   </div>
 </template>
 
 <script>
 import ChatListItem from "../../components/chat/ChatListItem";
+import ChatPanel from "../../components/chat/ChatPanel";
 
 export default {
   name: "Chat",
-  components: {ChatListItem},
+  components: {ChatPanel, ChatListItem},
   created() {
     let count = 20;
     for (let idx = 0; idx < count; idx++) {
@@ -41,8 +43,16 @@ export default {
   data() {
     return {
       chatListItems: [],
-      chatInfo: {}
+      currentChatInfo: undefined
     };
+  },
+  methods: {
+    chatListItemClick(item) {
+      this.currentChatInfo = {
+        title: item.title,
+        subTitle: "subtitle",
+      };
+    }
   }
 };
 </script>
@@ -88,15 +98,18 @@ export default {
   background-color: #EEEEEE;
 }
 
-.chat-panel {
-  width: 100%;
+.chat-panel-div {
+  width: calc(100% - 250px);
   height: 100%;
+  position: relative;
+  margin-left: 250px;
 }
 
 /* 滚动条 */
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #EEEEEE;

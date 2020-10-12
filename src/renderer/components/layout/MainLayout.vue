@@ -1,16 +1,11 @@
 <template>
   <div class="main-page">
     <div class="left-menu-bar">
-      <el-row>
-        <img :src="avatar"
-             width="50px"
-             height="50px"
-             style="margin: 5px"
-             alt=""/>
-      </el-row>
-      <el-row>
+      <img :src="avatar"
+           alt=""/>
+      <div>
         <aside-menu/>
-      </el-row>
+      </div>
     </div>
     <div class="right-content">
       <router-view></router-view>
@@ -44,7 +39,13 @@ export default {
   width: 60px;
   height: 100%;
   float: left;
-  box-shadow: 1px 0 1px #cccccc;
+  border-top: 1px #EEEEEE solid;
+}
+
+.left-menu-bar img {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
 }
 
 .right-content {
