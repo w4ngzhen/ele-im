@@ -34,7 +34,7 @@ export default {
       this.chatListItems.push({
         id: '' + idx,
         avatar: '',
-        title: '' + idx + '-Title',
+        title: '' + idx + '-Title这是一个很长很长的标题很长很长的标题',
         abstract: '',
         datetime: '2020-10-10 23:23:23'
       });
