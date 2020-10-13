@@ -7,7 +7,7 @@
       <p :title="subTitle">{{ subTitle }}</p>
     </div>
     <div class="right-option">
-      <i class="fa fa-bars"></i>
+      <i @click="optionClick" class="fa fa-bars"></i>
     </div>
   </div>
 </template>
@@ -27,6 +27,11 @@ export default {
       default() {
         return '';
       }
+    }
+  },
+  methods: {
+    optionClick() {
+      this.$emit('option-click');
     }
   }
 };
@@ -86,6 +91,7 @@ export default {
 .right-option i {
   line-height: 60px;
 }
+
 .right-option i:hover {
   cursor: pointer;
 }

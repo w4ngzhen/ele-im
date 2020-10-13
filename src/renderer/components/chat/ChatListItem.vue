@@ -4,7 +4,13 @@
       <img :src="avatar" alt=""/>
     </div>
     <div class="chat-item-info">
-      {{ title }}
+      <div class="title-div">
+        <p :title="title">{{ title }}</p>
+      </div>
+      <div class="datetime-div">
+
+      </div>
+      <div class="abstract-div"></div>
     </div>
   </div>
 </template>
@@ -41,13 +47,14 @@ export default {
 
 <style scoped>
 .item {
+  width: 250px;
   height: 55px;
 }
 
 .avatar-wrapper {
   float: left;
-  height: 100%;
   width: 55px;
+  height: 55px;
 }
 
 .avatar-wrapper img {
@@ -57,8 +64,20 @@ export default {
 }
 
 .chat-item-info {
-  position: relative;
-  height: 100%;
+  height: 55px;
+  width: 195%;
   margin-left: 55px;
 }
+
+.chat-item-info .title-div {
+  width: 180px;
+  overflow: hidden;
+}
+
+.chat-item-info .title-div p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 </style>
