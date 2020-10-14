@@ -1,16 +1,16 @@
 <template>
   <div class="item">
-    <div class="avatar-wrapper">
+    <div class="chat-item-avatar-wrapper">
       <img :src="avatar" alt=""/>
     </div>
     <div class="chat-item-info">
-      <div class="title-div">
-        <p :title="title">{{ title }}</p>
+      <div class="chat-title-line">
+        <div class="title-div"><p class="hidden-p">{{ title }}</p></div>
+        <div class="datetime-div"><p class="hidden-p">{{ datetime }}</p></div>
       </div>
-      <div class="datetime-div">
-
+      <div class="chat-abstract-line">
+        <div class="abstract-div"><p class="hidden-p">{{ abstract }}</p></div>
       </div>
-      <div class="abstract-div"></div>
     </div>
   </div>
 </template>
@@ -46,38 +46,67 @@ export default {
 </script>
 
 <style scoped>
+
 .item {
-  width: 250px;
+  display: flex; /* flex 布局 */
+  width: 235px;
   height: 55px;
-}
-
-.avatar-wrapper {
-  float: left;
-  width: 55px;
-  height: 55px;
-}
-
-.avatar-wrapper img {
-  width: 45px;
-  height: 45px;
-  margin: 5px;
-}
-
-.chat-item-info {
-  height: 55px;
-  width: 195%;
-  margin-left: 55px;
-}
-
-.chat-item-info .title-div {
-  width: 180px;
   overflow: hidden;
 }
 
-.chat-item-info .title-div p {
+div * {
+  box-sizing: border-box; /* 以Border作为盒子模型尺寸计算 */
+}
+
+.hidden-p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  margin: 0 auto;
+}
+
+.chat-item-avatar-wrapper {
+  width: 55px;
+  height: 55px;
+  padding: 5px;
+}
+
+.chat-item-avatar-wrapper img {
+  width: 45px;
+  height: 45px;
+}
+
+.chat-item-info {
+  width: 180px;
+  height: 55px;
+}
+
+.chat-item-info .chat-title-line {
+  display: flex;
+
+  width: 180px;
+  height: 30px;
+
+  line-height: 30px;
+}
+
+.chat-item-info .chat-title-line .title-div p {
+  width: 135px;
+  height: 30px;
+}
+
+.chat-item-info .chat-title-line .datetime-div p {
+  width: 45px;
+  height: 30px;
+  font-size: 14px;
+}
+
+
+.chat-item-info .chat-abstract-line {
+  width: 180px;
+  height: 25px;
+  font-size: 14px;
+  color: #8d8c8c;
 }
 
 </style>

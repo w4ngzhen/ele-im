@@ -37,11 +37,13 @@ export default {
 <style scoped>
 .chat-panel {
   height: 100%;
+  width: 100%;
 }
 
 .chat-panel .chat-panel-title {
   height: 60px;
   border-top: 1px #EEEEEE solid;
+  width: 100%;
 }
 
 .chat-panel .chat-panel-content {

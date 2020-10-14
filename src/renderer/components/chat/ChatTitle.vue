@@ -40,17 +40,15 @@ export default {
 <style scoped>
 
 .chat-title {
+  display: flex;
   height: 60px;
-  width: 100%;
+  width: calc(100% - 2px);
 }
 
 .main-title {
-  float: left;
   width: 200px;
-  height: 100%;
-
-  display: flex;
-  align-items: center;
+  height: 60px;
+  margin-left: 10px;
 }
 
 .main-title p {
@@ -59,16 +57,13 @@ export default {
   white-space: nowrap;
 
   font-size: 18px;
-  margin-left: 10px;
+  line-height: 60px;
+  margin: 0 auto;
 }
 
 .sub-title {
-  float: left;
-  width: calc(100% - 264px); /* 右侧预留一点border宽度 */
-  height: 100%;
-
-  display: flex;
-  align-items: center;
+  width: calc(100% - 260px);
+  height: 60px;
 }
 
 .sub-title p {
@@ -77,12 +72,15 @@ export default {
   white-space: nowrap;
 
   font-size: 14px;
+  color: #505050;
+  line-height: 60px;
+  margin: 0 auto;
 }
 
 .right-option {
   float: left;
   width: 60px;
-  height: 100%;
+  height: 60px;
 
   border-left: 1px #EEEEEE solid;
   text-align: center;
