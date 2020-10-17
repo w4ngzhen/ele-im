@@ -1,15 +1,15 @@
 <template>
-  <div class="item">
-    <div class="chat-item-avatar-wrapper">
+  <div class="ele-im__item">
+    <div class="ele-im__chat-item-avatar-wrapper">
       <img :src="avatar" alt=""/>
     </div>
-    <div class="chat-item-info">
+    <div class="ele-im__chat-item-info">
       <div class="chat-title-line">
-        <div class="title-div"><p class="hidden-p">{{ title }}</p></div>
-        <div class="datetime-div"><p class="hidden-p">{{ datetime }}</p></div>
+        <div class="title-div"><p class="ele-im__overflow-p">{{ title }}</p></div>
+        <div class="datetime-div"><p class="ele-im__overflow-p">{{ datetime }}</p></div>
       </div>
       <div class="chat-abstract-line">
-        <div class="abstract-div"><p class="hidden-p">{{ abstract }}</p></div>
+        <div class="abstract-div"><p class="ele-im__overflow-p">{{ abstract }}</p></div>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 
-.item {
+.ele-im__item {
   display: flex; /* flex 布局 */
   width: 235px;
   height: 55px;
@@ -58,30 +58,31 @@ div * {
   box-sizing: border-box; /* 以Border作为盒子模型尺寸计算 */
 }
 
-.hidden-p {
+.ele-im__overflow-p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0 auto;
 }
 
-.chat-item-avatar-wrapper {
+
+.ele-im__chat-item-avatar-wrapper {
   width: 55px;
   height: 55px;
   padding: 5px;
 }
 
-.chat-item-avatar-wrapper img {
+.ele-im__chat-item-avatar-wrapper img {
   width: 45px;
   height: 45px;
 }
 
-.chat-item-info {
+.ele-im__chat-item-info {
   width: 180px;
   height: 55px;
 }
 
-.chat-item-info .chat-title-line {
+.ele-im__chat-item-info .chat-title-line {
   display: flex;
 
   width: 180px;
@@ -90,19 +91,19 @@ div * {
   line-height: 30px;
 }
 
-.chat-item-info .chat-title-line .title-div p {
+.ele-im__chat-item-info .chat-title-line .title-div p {
   width: 135px;
   height: 30px;
 }
 
-.chat-item-info .chat-title-line .datetime-div p {
+.ele-im__chat-item-info .chat-title-line .datetime-div p {
   width: 45px;
   height: 30px;
   font-size: 14px;
 }
 
 
-.chat-item-info .chat-abstract-line {
+.ele-im__chat-item-info .chat-abstract-line {
   width: 180px;
   height: 25px;
   font-size: 14px;

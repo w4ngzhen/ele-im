@@ -1,13 +1,13 @@
 <template>
-  <div class="main-page">
-    <div class="left-menu-bar">
+  <div class="ele-im__main-page">
+    <div class="ele-im__left-menu-bar">
       <img :src="avatar"
            alt=""/>
       <div>
         <aside-menu/>
       </div>
     </div>
-    <div class="right-content">
+    <div class="ele-im__right-content">
       <router-view></router-view>
     </div>
   </div>
@@ -28,27 +28,27 @@ export default {
 </script>
 
 <style scoped>
-.main-page {
+.ele-im__main-page {
   width: 100%;
   height: 100%;
   background-color: transparent;
   overflow: hidden;
 }
 
-.left-menu-bar {
+.ele-im__left-menu-bar {
   width: 60px;
   height: 100%;
   float: left;
   border-top: 1px #EEEEEE solid;
 }
 
-.left-menu-bar img {
+.ele-im__left-menu-bar img {
   width: 50px;
   height: 50px;
   margin: 5px;
 }
 
-.right-content {
+.ele-im__right-content {
   height: 100%;
   margin-left: 60px;
   background-color: #FFF;

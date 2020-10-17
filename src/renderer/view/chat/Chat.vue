@@ -1,21 +1,21 @@
 <template>
-  <div class="chat-page">
-    <div class="chat-list-side">
-      <div class="info-search">
-        <el-input class="search-input"
+  <div class="ele-im__chat-page">
+    <div class="ele-im__chat-list-side">
+      <div class="ele-im__info-search">
+        <el-input class="ele-im__search-input"
                   placeholder="搜索联系人"
                   prefix-icon="el-icon-search"
                   size="mini"/>
       </div>
-      <div class="chat-list">
-        <div class="chat-list-item-wrapper"
+      <div class="ele-im__chat-list">
+        <div class="ele-im__chat-list-item-wrapper"
              v-for="item in chatListItems"
              @click="chatListItemClick(item)">
           <chat-list-item :data="item"/>
         </div>
       </div>
     </div>
-    <div class="chat-panel-div">
+    <div class="ele-im__chat-panel-div">
       <chat-panel v-if="currentChatInfo" :chat-info="currentChatInfo"/>
     </div>
   </div>
@@ -59,46 +59,46 @@ export default {
 
 <style scoped>
 
-.chat-page {
+.ele-im__chat-page {
   width: 100%;
   height: 100%;
   background-color: transparent;
 }
 
-.chat-list-side {
+.ele-im__chat-list-side {
   width: 250px;
   height: 100%;
   float: left;
   border: 1px #EEEEEE solid;
 }
 
-.info-search {
+.ele-im__info-search {
   height: 60px;
   border-bottom: 1px #EEEEEE solid;
 }
 
-.info-search .search-input {
+.ele-im__info-search .ele-im__search-input {
   width: 230px;
   margin: 10px;
 }
 
-.chat-list {
+.ele-im__chat-list {
   height: calc(100% - 60px);
   width: 100%;
   overflow-y: scroll;
 }
 
-.chat-list-item-wrapper {
+.ele-im__chat-list-item-wrapper {
   padding: 5px;
   border-bottom: 1px #EEEEEE solid;
 }
 
-.chat-list-item-wrapper:hover {
+.ele-im__chat-list-item-wrapper:hover {
   cursor: pointer;
   background-color: #EEEEEE;
 }
 
-.chat-panel-div {
+.ele-im__chat-panel-div {
   width: calc(100% - 250px);
   height: 100%;
   position: relative;

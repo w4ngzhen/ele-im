@@ -1,12 +1,12 @@
 <template>
-  <div class="chat-panel">
-    <div class="chat-panel-title">
+  <div class="ele-im__chat-panel">
+    <div class="ele-im__chat-panel-title">
       <chat-title :title="title" :sub-title="subTitle"/>
     </div>
-    <div class="chat-panel-content">
+    <div class="ele-im__chat-panel-content">
       content
     </div>
-    <div class="chat-panel-send">
+    <div class="ele-im__chat-panel-send">
       send
     </div>
   </div>
@@ -35,23 +35,23 @@ export default {
 </script>
 
 <style scoped>
-.chat-panel {
+.ele-im__chat-panel {
   height: 100%;
   width: 100%;
 }
 
-.chat-panel .chat-panel-title {
+.ele-im__chat-panel .ele-im__chat-panel-title {
   height: 60px;
   border-top: 1px #EEEEEE solid;
   width: 100%;
 }
 
-.chat-panel .chat-panel-content {
+.ele-im__chat-panel .ele-im__chat-panel-content {
   height: calc(100% - 210px);
   border-top: 1px #EEEEEE solid;
 }
 
-.chat-panel .chat-panel-send {
+.ele-im__chat-panel .ele-im__chat-panel-send {
   height: 150px;
   border-top: 1px #EEEEEE solid;
 }

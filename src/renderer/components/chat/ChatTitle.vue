@@ -1,12 +1,12 @@
 <template>
-  <div class="chat-title">
-    <div class="main-title">
+  <div class="ele-im__chat-title">
+    <div class="ele-im__main-title">
       <p :title="title">{{ title }}</p>
     </div>
-    <div class="sub-title">
+    <div class="ele-im__sub-title">
       <p :title="subTitle">{{ subTitle }}</p>
     </div>
-    <div class="right-option">
+    <div class="ele-im__right-option">
       <i @click="optionClick" class="fa fa-bars"></i>
     </div>
   </div>
@@ -39,19 +39,19 @@ export default {
 
 <style scoped>
 
-.chat-title {
+.ele-im__chat-title {
   display: flex;
   height: 60px;
   width: calc(100% - 2px);
 }
 
-.main-title {
+.ele-im__main-title {
   width: 200px;
   height: 60px;
   margin-left: 10px;
 }
 
-.main-title p {
+.ele-im__main-title p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -61,12 +61,12 @@ export default {
   margin: 0 auto;
 }
 
-.sub-title {
+.ele-im__sub-title {
   width: calc(100% - 260px);
   height: 60px;
 }
 
-.sub-title p {
+.ele-im__sub-title p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -77,7 +77,7 @@ export default {
   margin: 0 auto;
 }
 
-.right-option {
+.ele-im__right-option {
   float: left;
   width: 60px;
   height: 60px;
@@ -86,11 +86,11 @@ export default {
   text-align: center;
 }
 
-.right-option i {
+.ele-im__right-option i {
   line-height: 60px;
 }
 
-.right-option i:hover {
+.ele-im__right-option i:hover {
   cursor: pointer;
 }
 </style>

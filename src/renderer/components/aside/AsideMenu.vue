@@ -1,13 +1,13 @@
 <template>
-  <el-menu default-active="1-4-1"
+  <el-menu default-active="chat"
            style="width: 100%;text-align: center"
            router
            class="aside"
            :collapse="true">
     <el-menu-item v-for="menu in menus"
                   :index="menu.index">
-      <div class="aside-menu-style">
-        <el-tooltip :content="menu.tip" >
+      <div class="ele-im__aside-menu-style">
+        <el-tooltip :content="menu.tip">
           <i :class="menu.icon"></i>
         </el-tooltip>
       </div>
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped>
-.aside-menu-style {
+.ele-im__aside-menu-style {
   font-size: 20px;
   color: #262626;
 }

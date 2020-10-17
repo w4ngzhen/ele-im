@@ -1,19 +1,19 @@
 <template>
   <div>
     <el-row style="margin: 30px 0 10px 0;text-align: center">
-      <span class="label-text">
+      <span class="ele-im__label-text">
         {{ loginLabel }}
       </span>
     </el-row>
     <el-row>
       <account-login
-          class="login-component"
+          class="ele-im__login-component"
       />
     </el-row>
     <el-divider>或</el-divider>
     <el-row>
       <fingerprint-login
-          class="login-component"/>
+          class="ele-im__login-component"/>
     </el-row>
   </div>
 </template>
@@ -35,12 +35,12 @@ export default {
 </script>
 
 <style scoped>
-.label-text {
+.ele-im__label-text {
   font-size: 60px;
   font-weight: bolder;
   color: #262626;
 }
-.login-component {
+.ele-im__login-component {
   margin: 10px 20px 0 20px;
 }
 </style>
