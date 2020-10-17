@@ -3,8 +3,9 @@
     <div class="ele-im__chat-panel-title">
       <chat-title :title="title" :sub-title="subTitle"/>
     </div>
-    <div class="ele-im__chat-panel-content">
-      content
+    <div class="ele-im__chat-panel-message">
+      <text-message v-for="data in messages"
+                    :data="data"/>
     </div>
     <div class="ele-im__chat-panel-send">
       send
@@ -14,10 +15,11 @@
 
 <script>
 import ChatTitle from "./ChatTitle";
+import TextMessage from "./TextMessage";
 
 export default {
   name: "ChatPanel",
-  components: {ChatTitle},
+  components: {TextMessage, ChatTitle},
   props: {
     chatInfo: {
       type: Object,
@@ -29,6 +31,9 @@ export default {
     },
     subTitle() {
       return this._.get(this.chatInfo, 'subTitle', '');
+    },
+    messages() {
+      return this._.get(this.chatInfo, 'messages', []);
     }
   }
 };
@@ -46,7 +51,7 @@ export default {
   width: 100%;
 }
 
-.ele-im__chat-panel .ele-im__chat-panel-content {
+.ele-im__chat-panel .ele-im__chat-panel-message {
   height: calc(100% - 210px);
   border-top: 1px #EEEEEE solid;
 }

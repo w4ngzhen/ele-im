@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       loginLabel: 'ELE IM',
-    }
+    };
   }
 };
 </script>
@@ -40,6 +40,7 @@ export default {
   font-weight: bolder;
   color: #262626;
 }
+
 .ele-im__login-component {
   margin: 10px 20px 0 20px;
 }
