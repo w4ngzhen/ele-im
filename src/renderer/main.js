@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import axios from 'axios';
+import axios from './api/my-axios';
 
 import App from './App';
 import router from './router';
@@ -12,6 +12,7 @@ import LoginLayout from "./components/layout/LoginLayout";
 import EmptyLayout from "./components/layout/EmptyLayout";
 
 import './assets/aside.css';
+import './assets/css/global.css';
 
 import 'font-awesome/css/font-awesome.css';
 

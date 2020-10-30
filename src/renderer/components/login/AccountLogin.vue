@@ -10,18 +10,7 @@
             :rules="{ required: true, message: '请填写用户名', trigger: 'blur' }"
             label="用户名"
             prop="username">
-          <el-select
-              v-model="loginModel.username"
-              filterable
-              allow-create
-              clearable
-              style="width: 100%">
-            <el-option
-                v-for="user in userInfos"
-                :key="user.username"
-                :value="user.username"
-                :label="user.username"/>
-          </el-select>
+          <el-input v-model="loginModel.username"/>
         </el-form-item>
         <el-form-item
             label="密码"
@@ -52,8 +41,8 @@ export default {
     return {
       userInfos: [],
       loginModel: {
-        username: '',
-        password: ''
+        username: 'hello',
+        password: 'world'
       }
     };
   },
@@ -66,9 +55,11 @@ export default {
       if (!localValidated) {
         return;
       }
-      // remote check todo
-      this.$ipcRenderer.send('enter-main-page');
-      this.$router.push('/chat');
+      this.$http.loginCheck(
+          this.loginModel.username,
+          this.loginModel.password).then(userInfo => {
+        this.$ipcRenderer.send('LoginCheckSuccess', userInfo);
+      });
     }
   },
 };

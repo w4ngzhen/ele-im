@@ -19,6 +19,11 @@ export default {
       return (this.$route.meta.layout || this.defaultLayout);
     }
   },
+  created() {
+    this.$ipcRenderer.on('LoginComplete', () => {
+      this.$router.push('/chat');
+    });
+  }
 };
 </script>
 

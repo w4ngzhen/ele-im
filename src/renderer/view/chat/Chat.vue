@@ -28,6 +28,20 @@ import ChatPanel from "../../components/chat/ChatPanel";
 export default {
   name: "Chat",
   components: {ChatPanel, ChatListItem},
+  computed: {
+    allUnreadChatMessageNumber() {
+      return this.chatListItems
+          .map(item => item.unreadNumber)
+          .reduce((num1, num2) => num1 + num2, 0);
+    }
+  },
+  watch: {
+    allUnreadChatMessageNumber() {
+      this.$store.commit(
+          'setAllUnreadChatMessageNumber',
+          this.allUnreadChatMessageNumber);
+    }
+  },
   created() {
     let count = 20;
     for (let idx = 0; idx < count; idx++) {
@@ -36,7 +50,8 @@ export default {
         avatar: '',
         title: '' + idx + '-Title这是一个很长很长的标题很长很长的标题',
         abstract: '这是一个段比较长的数据，很长很长',
-        datetime: '2020-10-10 23:23:23'
+        datetime: '2020-10-10 23:23:23',
+        unreadNumber: 8
       });
     }
   },
@@ -48,6 +63,7 @@ export default {
   },
   methods: {
     chatListItemClick(item) {
+      this.removeUnreadChatMessageNumber(item);
       this.currentChatInfo = {
         title: item.title,
         subTitle: "subtitle",
@@ -59,6 +75,9 @@ export default {
           {avatar: '', tinyText: 'zhen', myMessage: false, contentText: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'},
         ]
       };
+    },
+    removeUnreadChatMessageNumber(item) {
+      item.unreadNumber = 0;
     }
   }
 };
@@ -93,6 +112,7 @@ export default {
   height: calc(100% - 60px);
   width: 100%;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .ele-im__chat-list-item-wrapper {
@@ -112,13 +132,4 @@ export default {
   margin-left: 250px;
 }
 
-/* 滚动条 */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background-color: #EEEEEE;
-}
 </style>

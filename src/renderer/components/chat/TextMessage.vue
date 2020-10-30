@@ -38,7 +38,7 @@ export default {
     tinyTextStyle() {
       return {
         float: this.myMessage ? 'right' : 'left'
-      }
+      };
     },
     myMessage() {
       return this._.get(this.data, 'myMessage', true);

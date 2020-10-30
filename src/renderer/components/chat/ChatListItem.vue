@@ -1,5 +1,8 @@
 <template>
   <div class="ele-im__item">
+    <div v-if="unreadNumber > 0" class="ele-im__item-unread-number">
+      {{ unreadNumber > 99 ? '99.' : unreadNumber }}
+    </div>
     <div class="ele-im__chat-item-avatar-wrapper">
       <img :src="avatar" alt=""/>
     </div>
@@ -24,6 +27,9 @@ export default {
     }
   },
   computed: {
+    unreadNumber() {
+      return this._.get(this.data, 'unreadNumber', 0);
+    },
     avatar() {
       let avatar = this._.get(this.data, 'avatar', '');
       if (avatar === '') {
@@ -75,6 +81,19 @@ div * {
 .ele-im__chat-item-avatar-wrapper img {
   width: 45px;
   height: 45px;
+}
+
+.ele-im__item-unread-number {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 18px;
+  background-color: red;
+
+  color: white;
+  font-size: 10px;
+  line-height: 18px;
+  text-align: center;
 }
 
 .ele-im__chat-item-info {
