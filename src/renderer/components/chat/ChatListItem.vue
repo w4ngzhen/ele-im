@@ -58,6 +58,7 @@ export default {
   width: 235px;
   height: 55px;
   overflow: hidden;
+  transform: translate(0, 0); /* 修复提示消息定位问题 */
 }
 
 div * {
