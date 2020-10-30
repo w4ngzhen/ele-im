@@ -61,10 +61,6 @@ export default {
   transform: translate(0, 0); /* 修复提示消息定位问题 */
 }
 
-div * {
-  box-sizing: border-box; /* 以Border作为盒子模型尺寸计算 */
-}
-
 .ele-im__overflow-p {
   overflow: hidden;
   text-overflow: ellipsis;

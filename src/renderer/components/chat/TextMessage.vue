@@ -63,7 +63,6 @@ export default {
 <style scoped>
 
 .ele-im__message-left-avatar {
-  box-sizing: border-box;
   width: 55px;
   height: 100%;
   padding-top: 5px;
