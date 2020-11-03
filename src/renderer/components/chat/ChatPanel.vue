@@ -8,7 +8,7 @@
                     :data="data"/>
     </div>
     <div class="ele-im__chat-panel-send">
-      send
+      <chat-message-send/>
     </div>
   </div>
 </template>
@@ -16,10 +16,11 @@
 <script>
 import ChatTitle from "./ChatTitle";
 import TextMessage from "./TextMessage";
+import ChatMessageSend from "./ChatMessageSend";
 
 export default {
   name: "ChatPanel",
-  components: {TextMessage, ChatTitle},
+  components: {ChatMessageSend, TextMessage, ChatTitle},
   props: {
     chatInfo: {
       type: Object,
