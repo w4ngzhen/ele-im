@@ -28,9 +28,6 @@ export default {
 </script>
 
 <style>
-body {
-  font-family: "Microsoft YaHei", serif;
-}
 
 /* CSS */
 #app {

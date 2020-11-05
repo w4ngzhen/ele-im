@@ -68,11 +68,36 @@ export default {
         title: item.title,
         subTitle: "subtitle",
         messages: [
-          {avatar: '', tinyText: 'zhen', myMessage: true, contentText: '这是一些文字'},
-          {avatar: '', tinyText: 'zhen', myMessage: false, contentText: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'},
-          {avatar: '', tinyText: 'zhen', myMessage: true, contentText: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'},
-          {avatar: '', tinyText: 'zhen', myMessage: false, contentText: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'},
-          {avatar: '', tinyText: 'zhen', myMessage: false, contentText: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'},
+          {messageType: 'text', avatar: '', tinyText: 'zhen', imSender: true, content: '这是一些文字'},
+          {
+            messageType: 'text',
+            avatar: '',
+            tinyText: 'zhen',
+            imSender: false,
+            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
+          },
+          {
+            messageType: 'text',
+            avatar: '',
+            tinyText: 'zhen',
+            imSender: true,
+            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
+          },
+          {messageType: 'tip', avatar: '', tinyText: 'zhen', imSender: true, content: '这是一段提示文字'},
+          {
+            messageType: 'text',
+            avatar: '',
+            tinyText: 'zhen',
+            imSender: false,
+            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
+          },
+          {
+            messageType: 'text',
+            avatar: '',
+            tinyText: 'zhen',
+            imSender: false,
+            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
+          },
         ]
       };
     },
