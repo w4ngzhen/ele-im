@@ -78,6 +78,7 @@ export default {
 .ele-im__chat-item-avatar-wrapper img {
   width: 45px;
   height: 45px;
+  border-radius: 5px;
 }
 
 .ele-im__item-unread-number {

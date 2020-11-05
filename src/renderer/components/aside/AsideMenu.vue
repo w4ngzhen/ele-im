@@ -86,6 +86,7 @@ export default {
   width: 45px;
   height: 45px;
   margin: 7px;
+  border-radius: 5px;
 }
 
 .ele-im__aside-top-menu {
