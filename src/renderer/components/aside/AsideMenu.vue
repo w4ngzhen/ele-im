@@ -99,6 +99,9 @@ export default {
   width: 100%;
   height: 300px;
   background-color: transparent;
+
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .ele-im__aside-menu-item-wrapper {
