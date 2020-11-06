@@ -81,7 +81,8 @@ export default {
             avatar: '',
             tinyText: 'zhen',
             imSender: true,
-            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
+            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字',
+            assistTip: 'sendError',
           },
           {messageType: 'tip', avatar: '', tinyText: 'zhen', imSender: true, content: '这是一段提示文字'},
           {
@@ -97,6 +98,14 @@ export default {
             tinyText: 'zhen',
             imSender: false,
             content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
+          },
+          {
+            messageType: 'text',
+            avatar: '',
+            tinyText: 'zhen',
+            imSender: true,
+            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字',
+            assistTip: '已读',
           },
         ]
       };

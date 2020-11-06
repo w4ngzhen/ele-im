@@ -1,6 +1,7 @@
 <template>
   <p class="ele-im__chat-text-message"
-     :style="style">
+     :style="style"
+  >
     {{ text }}
   </p>
 </template>
@@ -31,7 +32,7 @@ export default {
   computed: {
     style() {
       return {
-        float: this.float,
+        // float: this.float,
         backgroundColor: this.backgroundColor
       };
     }
