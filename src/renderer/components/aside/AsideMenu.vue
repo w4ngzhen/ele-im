@@ -20,6 +20,7 @@
            @click="menuClick(menu)"
            class="ele-im__aside-menu-item-wrapper"
            :class="isCurrentIndex(menu) ? 'ele-im__aside-menu-item-selected' : ''">
+        <el-tooltip
         <div v-show="displayMenuPointTip(menu)"
              class="ele-im__menu-point-tip"></div>
         <i :class="menu.icon"/>

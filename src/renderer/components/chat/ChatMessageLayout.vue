@@ -93,6 +93,7 @@ export default {
 .ele-im__chat-message-layout-left-avatar img {
   width: 45px;
   height: 45px;
+  border-radius: 5px;
 }
 
 .ele-im__chat-message-layout-right-avatar {
@@ -106,6 +107,7 @@ export default {
 .ele-im__chat-message-layout-right-avatar img {
   width: 45px;
   height: 45px;
+  border-radius: 5px;
 }
 
 .ele-im__chat-message-layout-middle {
