@@ -1,7 +1,8 @@
 <template>
   <div class="ele-im__chat-message-send">
-    <div class="ele-im__chat-message-send-tool-bar">
-      Tool Bar
+    <div class="ele-im__chat-message-send-tool-bar-wrapper">
+      <chat-message-send-tool-bar
+          @toolClick="tool => $message.success(JSON.stringify(tool))"/>
     </div>
     <div class="ele-im__chat-message-send-content">
       <textarea v-model="content"></textarea>
@@ -18,8 +19,10 @@
 </template>
 
 <script>
+import ChatMessageSendToolBar from "./ChatMessageSendToolBar";
 export default {
   name: "ChatMessageSend",
+  components: {ChatMessageSendToolBar},
   props: {
     tools: {
       type: Array,
@@ -50,11 +53,9 @@ export default {
   height: 100%;
 }
 
-.ele-im__chat-message-send-tool-bar {
+.ele-im__chat-message-send-tool-bar-wrapper {
   width: 100%;
   height: 35px;
-
-  background-color: #EEEEEE;
 }
 
 .ele-im__chat-message-send-content {
@@ -68,7 +69,7 @@ export default {
   width: 100%;
   height: 100%;
 
-  padding: 10px 20px;
+  padding: 5px 20px 10px 20px;
   border: none;
   outline: none;
 
