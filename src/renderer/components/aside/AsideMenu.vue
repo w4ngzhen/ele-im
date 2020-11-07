@@ -17,13 +17,22 @@
     <div class="ele-im__aside-bottom-menu">
       <div v-for="menu in bottomMenus"
            :key="menu.index"
-           @click="menuClick(menu)"
+           @click="menu.subMenus ? () => {} : menuClick(menu)"
            class="ele-im__aside-menu-item-wrapper"
-           :class="isCurrentIndex(menu) ? 'ele-im__aside-menu-item-selected' : ''">
-        <el-tooltip
+           :class="isCurrentIndex(menu) ? 'ele-im__aside-menu-item-selected' : ''"
+           :title="menu.desc">
         <div v-show="displayMenuPointTip(menu)"
              class="ele-im__menu-point-tip"></div>
         <i :class="menu.icon"/>
+
+        <!-- 底部菜单会有hover时候，右侧弹出的菜单场景 -->
+        <ul v-if="menu.subMenus"
+            class="ele-im__aside-menu-item-sub-menus">
+          <li v-for="subMenu in menu.subMenus"
+              :key="subMenu.index" :title="''">
+            {{ subMenu.desc }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -44,11 +53,21 @@ export default {
   data() {
     return {
       topMenus: [
-        {index: 'chat', icon: 'fa fa-commenting-o', tip: '聊天'},
-        {index: 'address-book', icon: 'fa fa fa-address-book-o', tip: '通讯录'},
+        {index: 'chat', icon: 'fa fa-commenting-o', desc: '聊天'},
+        {index: 'address-book', icon: 'fa fa fa-address-book-o', desc: '通讯录'},
       ],
       bottomMenus: [
-        {index: 'settings', icon: 'fa fa-cog', tip: '设置'},
+        {
+          index: 'more', icon: 'fa fa-bars', desc: '更多',
+          subMenus: [
+            {index: 'settings', icon: '', desc: '设置'},
+            {index: 'update', icon: '', desc: '更新'},
+            {index: 'about', icon: '', desc: '关于'},
+          ]
+        },
+        {
+          index: 'function', icon: 'fa fa-codepen', desc: '功能'
+        },
       ],
     };
   },
@@ -120,6 +139,41 @@ export default {
   opacity: 1;
 }
 
+.ele-im__aside-menu-item-wrapper:hover > .ele-im__aside-menu-item-sub-menus {
+  box-shadow: 0 0 10px #ccc;
+  display: block;
+}
+
+.ele-im__aside-menu-item-sub-menus {
+  display: none;
+  position: absolute;
+  left: 60px;
+  bottom: 0;
+  z-index: 999;
+  background: #fff;
+  border: 1px #f7f7f7 solid;
+  border-radius: 5px;
+  width: 10%;
+  margin: 0;
+  padding: 0;
+  color: #205D67;
+  list-style: none;
+  font-size: 14px;
+}
+
+
+.ele-im__aside-menu-item-sub-menus li {
+  width: 100%;
+  height: 35px;
+
+  line-height: 35px;
+}
+
+.ele-im__aside-menu-item-sub-menus li:hover {
+  background-color: #e8eef7;
+}
+
+
 .ele-im__aside-menu-item-selected {
   opacity: 1;
   background-color: #145ea5;
@@ -132,4 +186,6 @@ export default {
   border-radius: 5px;
   background-color: red;
 }
+
+
 </style>

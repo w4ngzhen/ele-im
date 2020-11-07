@@ -9,7 +9,7 @@
                            :data="data"/>
     </div>
     <div class="ele-im__chat-panel-send">
-      <chat-message-send/>
+      <chat-message-send @sendMessage="sendMessage"/>
     </div>
   </div>
 </template>
@@ -37,6 +37,15 @@ export default {
     messages() {
       return this._.get(this.chatInfo, 'messages', []);
     }
+  },
+  methods: {
+    sendMessage(content) {
+      let type = content.type;
+      let data = content.data;
+      if (type === 'text') {
+
+      }
+    }
   }
 };
 </script>
@@ -60,6 +69,7 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 .ele-im__chat-panel-message-layout {
   margin: 10px 0;
 }

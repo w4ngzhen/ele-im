@@ -5,21 +5,30 @@
           @toolClick="tool => $message.success(JSON.stringify(tool))"/>
     </div>
     <div class="ele-im__chat-message-send-content">
-      <textarea v-model="content"></textarea>
+      <textarea v-model="content"
+                @keypress="inputKeyPress"
+      />
     </div>
     <div class="ele-im__chat-message-send-bottom">
-      <el-button type="primary"
-                 size="mini"
-                 plain
-                 class="ele-im__chat-message-send-bottom-button"
-                 @click="send"
-      >发送</el-button>
+      <div class="ele-im__chat-message-send-bottom-left">
+        <p>{{ 'alt+enter 换行' }}</p>
+      </div>
+      <div class="ele-im__chat-message-send-bottom-right">
+        <el-button type="primary"
+                   size="mini"
+                   plain
+                   class="ele-im__chat-message-send-bottom-button"
+                   @click="send"
+        >发送
+        </el-button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import ChatMessageSendToolBar from "./ChatMessageSendToolBar";
+
 export default {
   name: "ChatMessageSend",
   components: {ChatMessageSendToolBar},
@@ -29,6 +38,12 @@ export default {
       default() {
         return [];
       }
+    },
+    reverseSendKey: {
+      type: Boolean,
+      default() {
+        return false;
+      }
     }
   },
   data() {
@@ -37,8 +52,28 @@ export default {
     };
   },
   methods: {
+    inputKeyPress(e) {
+      let keyCode = e.keyCode;
+      if (keyCode !== 10 && keyCode !== 13) { // 非[alt + enter]和[enter]
+        return;
+      }
+      if (keyCode === 10) { // alt + enter
+        if (this.reverseSendKey) {
+          this.send();
+        } else {
+          this.content += '\n';
+        }
+      } else if (keyCode === 13) { // enter
+        if (this.reverseSendKey) {
+          this.content += '\n';
+        } else {
+          this.send();
+        }
+      }
+      e.preventDefault();
+    },
     send() {
-      this.$emit('sendMessage', this.content);
+      this.$emit('sendMessage', {type: 'text', data: this.content});
     }
   }
 };
@@ -79,14 +114,42 @@ export default {
 }
 
 .ele-im__chat-message-send-bottom {
+  display: flex;
+
   width: 100%;
   height: 40px;
 }
 
-.ele-im__chat-message-send-bottom-button {
+.ele-im__chat-message-send-bottom-left {
+  width: calc(100% - 100px);
+  height: 40px;
+
+  padding: 10px;
+}
+
+.ele-im__chat-message-send-bottom-left p {
+  display: block;
+  box-sizing: border-box;
+  height: 20px;
+
+  margin: 0;
+
+  line-height: 20px;
+  font-size: 12px;
   float: right;
-  margin: 5px 20px 5px 0;
-  width: 80px;
+  color: #8d8c8c;
+}
+
+.ele-im__chat-message-send-bottom-right {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+.ele-im__chat-message-send-bottom-button {
+  width: 100%;
+  height: 30px;
 }
 
 </style>

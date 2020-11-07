@@ -5,6 +5,7 @@ import Portal from "../view/portal/Portal";
 import Chat from "../view/chat/Chat";
 import AddressBook from "../view/address-book/AddressBook";
 import Settings from "../view/settings/Settings";
+import ErrorPage from "../view/404/ErrorPage";
 
 Vue.use(Router);
 
@@ -39,13 +40,8 @@ export default new Router({
       component: AddressBook
     },
     {
-      path: '/settings',
-      name: 'settings',
-      component: Settings
-    },
-    {
       path: '*',
-      redirect: '/'
+      component: ErrorPage
     }
   ]
 });
