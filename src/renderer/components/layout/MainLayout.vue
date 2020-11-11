@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import AsideMenu from "../aside/AsideMenu";
+import AsideMenu from "./aside/AsideMenu";
 
 export default {
   name: "MainLayout",
