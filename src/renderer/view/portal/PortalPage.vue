@@ -3,7 +3,7 @@
 
 <script>
 export default {
-  name: "Portal",
+  name: "PortalPage",
   created() {
     let $loading = this.$loading({
       text: '加载中，请稍后'

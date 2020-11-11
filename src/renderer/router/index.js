@@ -1,10 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Login from "../view/login/Login";
-import Portal from "../view/portal/Portal";
-import Chat from "../view/chat/Chat";
-import AddressBook from "../view/address-book/AddressBook";
-import Settings from "../view/settings/Settings";
+import LoginPage from "../view/login/LoginPage";
+import PortalPage from "../view/portal/PortalPage";
+import ChatPage from "../view/chat/ChatPage";
+import AddressBookPage from "../view/address-book/AddressBookPage";
 import ErrorPage from "../view/404/ErrorPage";
 
 Vue.use(Router);
@@ -18,7 +17,7 @@ export default new Router({
         authRequired: false,
         layout: 'empty-layout'
       },
-      component: Portal
+      component: PortalPage
     },
     {
       path: '/login',
@@ -27,17 +26,17 @@ export default new Router({
         authRequired: false,
         layout: 'login-layout'
       },
-      component: Login
+      component: LoginPage
     },
     {
       path: '/chat',
       name: 'chat',
-      component: Chat
+      component: ChatPage
     },
     {
       path: '/address-book',
       name: 'address-book',
-      component: AddressBook
+      component: AddressBookPage
     },
     {
       path: '*',

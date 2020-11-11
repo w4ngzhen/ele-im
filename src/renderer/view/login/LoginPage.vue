@@ -23,7 +23,7 @@ import AccountLogin from "../../components/login/AccountLogin";
 import FingerprintLogin from "../../components/login/FingerprintLogin";
 
 export default {
-  name: "Login",
+  name: "LoginPage",
   components: {FingerprintLogin, AccountLogin},
   methods: {},
   data() {

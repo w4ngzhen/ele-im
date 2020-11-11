@@ -1,12 +1,12 @@
 <template>
   <div>
-    AddressBook
+    Settings
   </div>
 </template>
 
 <script>
 export default {
-  name: "AddressBook"
+  name: "SettingsPage"
 };
 </script>
 

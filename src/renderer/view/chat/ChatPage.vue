@@ -26,7 +26,7 @@ import ChatListItem from "../../components/chat/ChatListItem";
 import ChatPanel from "../../components/chat/ChatPanel";
 
 export default {
-  name: "Chat",
+  name: "ChatPage",
   components: {ChatPanel, ChatListItem},
   computed: {
     allUnreadChatMessageNumber() {
