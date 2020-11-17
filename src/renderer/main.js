@@ -15,6 +15,7 @@ import './assets/aside.css';
 import './assets/css/global.css';
 
 import 'font-awesome/css/font-awesome.css';
+import dateHelper from './util/date-helper';
 
 const ipcRenderer = require('electron').ipcRenderer;
 
@@ -25,6 +26,7 @@ Vue.http = Vue.prototype.$http = axios;
 Vue.config.productionTip = false;
 Vue.prototype.$ipcRenderer = ipcRenderer; // 设置渲染进程
 Vue.prototype._ = require('lodash');
+Vue.prototype.$dateHelper = dateHelper;
 
 Vue.component('main-layout', MainLayout);
 Vue.component('login-layout', LoginLayout);

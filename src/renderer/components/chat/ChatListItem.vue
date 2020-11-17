@@ -45,7 +45,7 @@ export default {
     },
     datetime() {
       let datetime = this._.get(this.data, 'datetime', '');
-      return datetime;
+      return this.$dateHelper.chatListItemTimeFormatter(datetime);
     }
   }
 };

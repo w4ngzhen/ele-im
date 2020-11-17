@@ -104,8 +104,7 @@ export default {
       };
     },
     removeUnreadChatMessageNumber(index) {
-      this.$store.commit('setChatListItemUnreadNumber',
-          {index: index, unreadNumber: 0});
+      this.$store.commit('setChatListItemUnreadNumber', {index: index, unreadNumber: 0});
     }
   }
 };
