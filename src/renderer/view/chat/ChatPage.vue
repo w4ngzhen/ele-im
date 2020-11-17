@@ -9,8 +9,8 @@
       </div>
       <div class="ele-im__chat-list">
         <div class="ele-im__chat-list-item-wrapper"
-             v-for="item in chatListItems"
-             @click="chatListItemClick(item)">
+             v-for="(item, index) in chatListItems"
+             @click="chatListItemClick({index, item})">
           <chat-list-item :data="item"/>
         </div>
       </div>
@@ -29,41 +29,34 @@ export default {
   name: "ChatPage",
   components: {ChatPanel, ChatListItem},
   computed: {
-    allUnreadChatMessageNumber() {
-      return this.chatListItems
-          .map(item => item.unreadNumber)
-          .reduce((num1, num2) => num1 + num2, 0);
+    chatListItems() {
+      return this.$store.state.chatListItems;
     }
   },
-  watch: {
-    allUnreadChatMessageNumber() {
-      this.$store.commit(
-          'setAllUnreadChatMessageNumber',
-          this.allUnreadChatMessageNumber);
-    }
-  },
+  watch: {},
   created() {
-    let count = 20;
+    this.$store.commit('clearChatListItems');
+    let count = 5;
     for (let idx = 0; idx < count; idx++) {
-      this.chatListItems.push({
+      let item = {
         id: '' + idx,
         avatar: '',
         title: '' + idx + '-Title这是一个很长很长的标题很长很长的标题',
         abstract: '这是一个段比较长的数据，很长很长',
         datetime: '2020-10-10 23:23:23',
         unreadNumber: 8
-      });
+      };
+      this.$store.commit('addChatListItem', item);
     }
   },
   data() {
     return {
-      chatListItems: [],
       currentChatInfo: undefined
     };
   },
   methods: {
-    chatListItemClick(item) {
-      this.removeUnreadChatMessageNumber(item);
+    chatListItemClick({index, item}) {
+      this.removeUnreadChatMessageNumber(index);
       this.currentChatInfo = {
         title: item.title,
         subTitle: "subtitle",
@@ -110,8 +103,9 @@ export default {
         ]
       };
     },
-    removeUnreadChatMessageNumber(item) {
-      item.unreadNumber = 0;
+    removeUnreadChatMessageNumber(index) {
+      this.$store.commit('setChatListItemUnreadNumber',
+          {index: index, unreadNumber: 0});
     }
   }
 };

@@ -47,7 +47,7 @@ export default {
       return require('@/assets/avatar.jpg');
     },
     allUnreadChatMessageNumber() {
-      return this.$store.state.allUnreadChatMessageNumber;
+      return this.$store.getters.allUnreadChatMessageNumber;
     }
   },
   data() {
