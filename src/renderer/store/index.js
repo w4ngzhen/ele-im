@@ -13,13 +13,13 @@ export default new Vuex.Store({
 
   state: {
     user: {},
-    chatListItems: [],
+    recentChats: [],
   },
 
   getters: {
     allUnreadChatMessageNumber: state => {
       const numProp = 'unreadNumber';
-      return state.chatListItems.reduce((item1, item2) =>
+      return state.recentChats.reduce((item1, item2) =>
         _.get(item1, numProp, 0) + _.get(item2, numProp, 0),
         0);
     }
@@ -33,19 +33,19 @@ export default new Vuex.Store({
       state.allUnreadChatMessageNumber = number;
     },
     addChatListItem(state, item) {
-      state.chatListItems.push(item);
+      state.recentChats.push(item);
     },
     insertChatListItem(state, {item, index}) {
-      state.chatListItems.splice(index, 0, item);
+      state.recentChats.splice(index, 0, item);
     },
     removeChatListItem(state, index) {
-      state.chatListItems.slice(index, 1);
+      state.recentChats.slice(index, 1);
     },
     clearChatListItems(state) {
-      state.chatListItems = [];
+      state.recentChats = [];
     },
     setChatListItemUnreadNumber(state, {index, unreadNumber}) {
-      let chatListItem = state.chatListItems[index];
+      let chatListItem = state.recentChats[index];
       if (chatListItem) {
         chatListItem.unreadNumber = unreadNumber;
       }

@@ -1,12 +1,12 @@
 <template>
-  <div class="ele-im__item">
-    <div v-if="unreadNumber > 0" class="ele-im__item-unread-number">
+  <div class="ele-im__recent-chat">
+    <div v-if="unreadNumber > 0" class="ele-im__recent-chat-unread-number">
       {{ unreadNumber > 99 ? '99.' : unreadNumber }}
     </div>
-    <div class="ele-im__chat-item-avatar-wrapper">
+    <div class="ele-im__recent-chat-avatar-wrapper">
       <img :src="avatar" alt=""/>
     </div>
-    <div class="ele-im__chat-item-info">
+    <div class="ele-im__recent-chat-info">
       <div class="chat-title-line">
         <div class="title-div"><p class="ele-im__overflow-p">{{ title }}</p></div>
         <div class="datetime-div"><p class="ele-im__overflow-p">{{ datetime }}</p></div>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "ChatListItem",
+  name: "RecentChat",
   props: {
     data: {
       type: Object,
@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 
-.ele-im__item {
+.ele-im__recent-chat {
   display: flex; /* flex 布局 */
   width: 235px;
   height: 55px;
@@ -69,19 +69,19 @@ export default {
 }
 
 
-.ele-im__chat-item-avatar-wrapper {
+.ele-im__recent-chat-avatar-wrapper {
   width: 55px;
   height: 55px;
   padding: 5px;
 }
 
-.ele-im__chat-item-avatar-wrapper img {
+.ele-im__recent-chat-avatar-wrapper img {
   width: 45px;
   height: 45px;
   border-radius: 5px;
 }
 
-.ele-im__item-unread-number {
+.ele-im__recent-chat-unread-number {
   position: absolute;
   width: 18px;
   height: 18px;
@@ -94,12 +94,12 @@ export default {
   text-align: center;
 }
 
-.ele-im__chat-item-info {
+.ele-im__recent-chat-info {
   width: 180px;
   height: 55px;
 }
 
-.ele-im__chat-item-info .chat-title-line {
+.ele-im__recent-chat-info .chat-title-line {
   display: flex;
 
   width: 180px;
@@ -108,19 +108,19 @@ export default {
   line-height: 30px;
 }
 
-.ele-im__chat-item-info .chat-title-line .title-div p {
+.ele-im__recent-chat-info .chat-title-line .title-div p {
   width: 135px;
   height: 30px;
 }
 
-.ele-im__chat-item-info .chat-title-line .datetime-div p {
+.ele-im__recent-chat-info .chat-title-line .datetime-div p {
   width: 45px;
   height: 30px;
   font-size: 14px;
 }
 
 
-.ele-im__chat-item-info .chat-abstract-line {
+.ele-im__recent-chat-info .chat-abstract-line {
   width: 180px;
   height: 25px;
   font-size: 14px;

@@ -1,17 +1,17 @@
 <template>
   <div class="ele-im__chat-page">
-    <div class="ele-im__chat-list-side">
+    <div class="ele-im__recent-chat-list-side">
       <div class="ele-im__info-search">
         <el-input class="ele-im__search-input"
                   placeholder="搜索联系人"
                   prefix-icon="el-icon-search"
                   size="mini"/>
       </div>
-      <div class="ele-im__chat-list">
-        <div class="ele-im__chat-list-item-wrapper"
-             v-for="(item, index) in chatListItems"
-             @click="chatListItemClick({index, item})">
-          <chat-list-item :data="item"/>
+      <div class="ele-im__recent-chat-list">
+        <div class="ele-im__recent-chat-wrapper"
+             v-for="(item, index) in recentChats"
+             @click="recentChatClick({index, item})">
+          <recent-chat :data="item"/>
         </div>
       </div>
     </div>
@@ -22,15 +22,15 @@
 </template>
 
 <script>
-import ChatListItem from "../../components/chat/ChatListItem";
+import RecentChat from "../../components/chat/RecentChat";
 import ChatPanel from "../../components/chat/ChatPanel";
 
 export default {
   name: "ChatPage",
-  components: {ChatPanel, ChatListItem},
+  components: {ChatPanel, RecentChat},
   computed: {
-    chatListItems() {
-      return this.$store.state.chatListItems;
+    recentChats() {
+      return this.$store.state.recentChats;
     }
   },
   watch: {},
@@ -55,7 +55,7 @@ export default {
     };
   },
   methods: {
-    chatListItemClick({index, item}) {
+    recentChatClick({index, item}) {
       this.removeUnreadChatMessageNumber(index);
       this.currentChatInfo = {
         title: item.title,
@@ -118,7 +118,7 @@ export default {
   background-color: transparent;
 }
 
-.ele-im__chat-list-side {
+.ele-im__recent-chat-list-side {
   width: 250px;
   height: 100%;
   float: left;
@@ -135,19 +135,19 @@ export default {
   margin: 10px;
 }
 
-.ele-im__chat-list {
+.ele-im__recent-chat-list {
   height: calc(100% - 60px);
   width: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.ele-im__chat-list-item-wrapper {
+.ele-im__recent-chat-wrapper {
   padding: 5px;
   border-bottom: 1px #EEEEEE solid;
 }
 
-.ele-im__chat-list-item-wrapper:hover {
+.ele-im__recent-chat-wrapper:hover {
   cursor: pointer;
   background-color: #EEEEEE;
 }
