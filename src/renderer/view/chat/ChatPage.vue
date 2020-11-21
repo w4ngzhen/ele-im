@@ -9,9 +9,9 @@
       </div>
       <div class="ele-im__recent-chat-list">
         <div class="ele-im__recent-chat-wrapper"
-             v-for="(item, index) in recentChats"
-             @click="recentChatClick({index, item})">
-          <recent-chat :data="item"/>
+             v-for="(recentChatItem, index) in recentChatList"
+             @click="recentChatItemClick({recentChatItem, index})">
+          <recent-chat :data="recentChatItem"/>
         </div>
       </div>
     </div>
@@ -29,13 +29,13 @@ export default {
   name: "ChatPage",
   components: {ChatPanel, RecentChat},
   computed: {
-    recentChats() {
-      return this.$store.state.recentChats;
+    recentChatList() {
+      return this.$store.state.recentChatListState.recentChatList;
     }
   },
   watch: {},
   created() {
-    this.$store.commit('clearChatListItems');
+    this.$store.commit('clearRecentChatList');
     let count = 5;
     for (let idx = 0; idx < count; idx++) {
       let item = {
@@ -46,7 +46,7 @@ export default {
         datetime: '2020-10-10 23:23:23',
         unreadNumber: 8
       };
-      this.$store.commit('addChatListItem', item);
+      this.$store.commit('addRecentChat', item);
     }
   },
   data() {
@@ -55,10 +55,10 @@ export default {
     };
   },
   methods: {
-    recentChatClick({index, item}) {
+    recentChatItemClick({recentChatItem, index}) {
       this.removeUnreadChatMessageNumber(index);
       this.currentChatInfo = {
-        title: item.title,
+        title: recentChatItem.title,
         subTitle: "subtitle",
         messages: [
           {messageType: 'text', avatar: '', tinyText: 'zhen', imSender: true, content: '这是一些文字'},
@@ -104,7 +104,7 @@ export default {
       };
     },
     removeUnreadChatMessageNumber(index) {
-      this.$store.commit('setChatListItemUnreadNumber', {index: index, unreadNumber: 0});
+      this.$store.commit('setRecentChatUnreadNumber', {unreadNumber: 0, index});
     }
   }
 };

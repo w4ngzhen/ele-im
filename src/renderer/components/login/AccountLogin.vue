@@ -58,6 +58,7 @@ export default {
       this.$http.loginCheck(
           this.loginModel.username,
           this.loginModel.password).then(userInfo => {
+        this.$store.commit('setUser', userInfo);
         this.$ipcRenderer.send('LoginCheckSuccess', userInfo);
       });
     }
