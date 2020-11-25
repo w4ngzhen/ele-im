@@ -54,6 +54,10 @@ function createWindow() {
     height: 600,
     width: 400,
     useContentSize: true,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true
+    }
   });
   mainWindow.setResizable(false);
 
