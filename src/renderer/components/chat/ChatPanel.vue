@@ -39,12 +39,8 @@ export default {
     }
   },
   methods: {
-    sendMessage(content) {
-      let type = content.type;
-      let data = content.data;
-      if (type === 'text') {
-
-      }
+    sendMessage(msg) {
+      this.$emit('sendMessage', msg);
     }
   }
 };

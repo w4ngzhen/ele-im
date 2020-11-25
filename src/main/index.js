@@ -21,26 +21,33 @@ const ipcMain = require('electron').ipcMain;
 let wsClient;
 let url = 'ws://localhost:8080';
 
-ipcMain.on('LoginCheckSuccess', (event, userInfo) => {
-  log.log(`短链接登录校验通过，用户信息：${JSON.stringify(userInfo)}，开始准备构建WebSocket长连接校验`);
+ipcMain.handle('LoginCheckSuccess', (event, loginUser) => {
+  log.log(`短链接登录校验通过，用户信息：${JSON.stringify(loginUser)}，开始准备构建WebSocket长连接校验`);
 
-  wsClient = io.connect(url);
+  return new Promise((resolve, reject) => {
+    wsClient = io.connect(url);
 
-  wsClient.on('connect', () => {
-    log.log('WebSocket完成建立，准备发送登录验证信息完成用户链接建立');
-    wsClient.emit('LoginCheckForWebSocket', userInfo);
-  });
+    wsClient.on('connect', () => {
+      log.log('WebSocket完成建立，准备发送登录验证信息完成用户链接建立');
+      wsClient.emit('LoginCheckForWebSocket', loginUser);
+    });
 
-  wsClient.on('LoginComplete', () => {
-    log.log('登录完成');
-    mainWindow.setSize(900, 600);
-    mainWindow.setResizable(true);
-    mainWindow.webContents.send('LoginComplete');
-  });
+    wsClient.on('LoginComplete', data => {
+      if (data.code === 0) {
+        log.log('登录完成');
+        mainWindow.setSize(900, 600);
+        mainWindow.setResizable(true);
+      } else if (data.code === 99) { // 登陆异常
+        return reject(new Error(data));
+        log.error(data);
+      }
+      return resolve(data);
+    });
 
-  wsClient.on('close', () => {
-    log.log('服务断开');
-    mainWindow.webContents.send('ConnectClose');
+    wsClient.on('close', () => {
+      log.log('服务断开');
+      mainWindow.webContents.send('ConnectClose');
+    });
   });
 
 });

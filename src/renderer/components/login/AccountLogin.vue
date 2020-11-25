@@ -6,19 +6,16 @@
           ref="loginForm"
           label-width="80px"
           :model="loginModel">
-        <el-form-item
-            :rules="{ required: true, message: '请填写用户名', trigger: 'blur' }"
-            label="用户名"
-            prop="username">
-          <el-input v-model="loginModel.username"/>
+        <el-form-item :rules="{ required: true, message: '请填写用户名', trigger: 'blur' }"
+                      label="用户名"
+                      prop="userId">
+          <el-input v-model="loginModel.userId"/>
         </el-form-item>
-        <el-form-item
-            label="密码"
-            :rules="{ required: true, message: '请填写密码', trigger: 'blur' }"
-            prop="password">
-          <el-input
-              show-password
-              v-model="loginModel.password"/>
+        <el-form-item label="密码"
+                      :rules="{ required: true, message: '请填写密码', trigger: 'blur' }"
+                      prop="password">
+          <el-input show-password
+                    v-model="loginModel.password"/>
         </el-form-item>
       </el-form>
     </el-row>
@@ -41,8 +38,8 @@ export default {
     return {
       userInfos: [],
       loginModel: {
-        username: 'hello',
-        password: 'world'
+        userId: '123',
+        password: '123'
       }
     };
   },
@@ -56,10 +53,13 @@ export default {
         return;
       }
       this.$http.loginCheck(
-          this.loginModel.username,
-          this.loginModel.password).then(userInfo => {
-        this.$store.commit('setUser', userInfo);
-        this.$ipcRenderer.send('LoginCheckSuccess', userInfo);
+          this.loginModel.userId,
+          this.loginModel.password
+      ).then(loginUser => {
+        this.$emit('loginSuccess', loginUser);
+      }).catch(err => {
+        console.log(err);
+        this.$message.error(err.message);
       });
     }
   },

@@ -1,10 +1,10 @@
 const state = {
-  user: {}
+  loginUser: {}
 };
 
 const mutations = {
-  setUser(state, user) {
-    state.user = user;
+  setLoginUser(state, loginUser) {
+    state.loginUser = loginUser;
   },
 };
 

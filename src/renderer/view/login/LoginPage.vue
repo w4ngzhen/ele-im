@@ -6,9 +6,8 @@
       </span>
     </el-row>
     <el-row>
-      <account-login
-          class="ele-im__login-component"
-      />
+      <account-login class="ele-im__login-component"
+                     @loginSuccess="accountLoginSuccess"/>
     </el-row>
     <el-divider>或</el-divider>
     <el-row>
@@ -25,12 +24,32 @@ import FingerprintLogin from "../../components/login/FingerprintLogin";
 export default {
   name: "LoginPage",
   components: {FingerprintLogin, AccountLogin},
-  methods: {},
   data() {
     return {
       loginLabel: 'ELE IM',
     };
-  }
+  },
+  methods: {
+    accountLoginSuccess(loginUser) { // 短链接登陆校验成功
+      this.initDb().then(_ => { // 数据库加载成功
+        this.$store.commit('setLoginUser', loginUser);
+        return this.$ipcRenderer.invoke('LoginCheckSuccess', loginUser);
+      }).then(data => { // 长连接建立成功，准备跳转
+        console.log(data);
+        if (data.code === 0) {
+          this.$router.push('/chat');
+        } else {
+          this.$message.error(data.message);
+        }
+      }).catch(err => {
+        console.error(err);
+        this.$message.error(err.message);
+      });
+    },
+    initDb() {
+      return Promise.resolve();
+    }
+  },
 };
 </script>
 

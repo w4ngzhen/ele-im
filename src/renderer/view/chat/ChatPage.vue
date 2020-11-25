@@ -105,7 +105,13 @@ export default {
     },
     removeUnreadChatMessageNumber(index) {
       this.$store.commit('setRecentChatUnreadNumber', {unreadNumber: 0, index});
-    }
+    },
+    avatarFormatter(senderId) {
+
+    },
+    tinyTextFormatter(senderId) {
+
+    },
   }
 };
 </script>
