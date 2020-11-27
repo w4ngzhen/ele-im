@@ -61,43 +61,43 @@ export default {
         title: recentChatItem.title,
         subTitle: "subtitle",
         messages: [
-          {messageType: 'text', avatar: '', tinyText: 'zhen', imSender: true, content: '这是一些文字'},
+          {messageType: 'text', avatar: '', tinyText: 'zhen', imSender: true, messageContent: '这是一些文字'},
           {
-            messageType: 'text',
             avatar: '',
             tinyText: 'zhen',
             imSender: false,
-            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
+            messageType: 'text',
+            messageContent: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
           },
           {
-            messageType: 'text',
             avatar: '',
             tinyText: 'zhen',
             imSender: true,
-            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字',
+            messageType: 'text',
+            messageContent: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字',
             assistTip: 'sendError',
           },
-          {messageType: 'tip', avatar: '', tinyText: 'zhen', imSender: true, content: '这是一段提示文字'},
+          {messageType: 'tip', avatar: '', tinyText: 'zhen', imSender: true, messageContent: '这是一段提示文字'},
           {
-            messageType: 'text',
             avatar: '',
             tinyText: 'zhen',
             imSender: false,
-            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
+            messageType: 'picture',
+            messageContent: 'id|rain.jpg'
           },
           {
             messageType: 'text',
             avatar: '',
             tinyText: 'zhen',
             imSender: false,
-            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
+            messageContent: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字'
           },
           {
-            messageType: 'text',
             avatar: '',
             tinyText: 'zhen',
             imSender: true,
-            content: '这是一些sdfsafsfsaf很sdfsdfsafsfasdfsdfsdfs的文字',
+            messageType: 'picture',
+            messageContent: 'uri|http://localhost:9090/public/images/rain.jpg',
             assistTip: '已读',
           },
         ]

@@ -1,6 +1,7 @@
 <template>
-  <div v-if="messageType === 'tip'" class="ele-im__chat-message-tip">
-    <chat-tip-message :data="content"/>
+  <div v-if="messageType === 'tip'"
+       class="ele-im__chat-message-tip">
+    <chat-tip-message :data="messageContent"/>
   </div>
   <div v-else class="ele-im__chat-message-layout-normal"
        :style="{flexDirection : imSender ? 'row-reverse' : 'row' }">
@@ -21,8 +22,11 @@
            :style="{flexDirection: imSender ? 'row-reverse' : 'row'}">
         <!-- 消息内容 -->
         <chat-text-message v-if="messageType === 'text'"
-                           :text="content"
-                           :background-color="imSender ? myMsgColor : notMyMsgColor"/>
+                           :text="messageContent"
+                           :background-color="messageBackgroundColor"/>
+        <chat-picture-message v-else-if="messageType === 'picture'"
+                           :content="messageContent"
+                           :background-color="messageBackgroundColor"/>
         <!-- 消息标识（发送失败红色感叹号、已读回执等） -->
         <!-- 失败标志。发送失败，显示重试按钮 -->
         <div v-if="assistTip === 'sendError'"
@@ -46,19 +50,17 @@
 <script>
 import ChatTextMessage from "./message/ChatTextMessage";
 import ChatTipMessage from "./message/ChatTipMessage";
+import ChatPictureMessage from "./message/ChatPictureMessage";
 
 export default {
   name: "ChatMessageLayout",
-  components: {ChatTipMessage, ChatTextMessage},
+  components: {ChatPictureMessage, ChatTipMessage, ChatTextMessage},
   props: {
     data: {
       type: Object
     }
   },
   computed: {
-    messageType() {
-      return this._.get(this.data, 'messageType', 'text');
-    },
     imSender() {
       return this._.get(this.data, 'imSender', false);
     },
@@ -72,18 +74,18 @@ export default {
     tinyText() {
       return this._.get(this.data, 'tinyText', '');
     },
-    content() {
-      return this._.get(this.data, 'content', '');
+    messageType() {
+      return this._.get(this.data, 'messageType', 'text');
+    },
+    messageContent() {
+      return this._.get(this.data, 'messageContent', '');
     },
     assistTip() {
       return this._.get(this.data, 'assistTip', '');
     },
-    myMsgColor() {
-      return '#7ab6f5';
-    },
-    notMyMsgColor() {
-      return '#efe8b5';
-    },
+    messageBackgroundColor() {
+      return this.imSender ? '#7ab6f5' : '#efe8b5';
+    }
   },
   data() {
     return {};
@@ -151,6 +153,7 @@ export default {
   line-height: 15px;
   text-align: center;
 }
+
 .ele-im__chat-message-layout-content-assist p {
   display: block;
   box-sizing: border-box;
@@ -170,6 +173,7 @@ export default {
   line-height: 15px;
   text-align: center;
 }
+
 .ele-im__chat-message-layout-content-send-error p {
   display: block;
   box-sizing: border-box;
@@ -178,6 +182,7 @@ export default {
   color: #EEEEEE;
   font-size: 12px;
 }
+
 .ele-im__chat-message-layout-content-send-error p:hover {
   cursor: pointer;
 }

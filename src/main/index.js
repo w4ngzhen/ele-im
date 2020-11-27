@@ -38,7 +38,6 @@ ipcMain.handle('LoginCheckSuccess', (event, loginUser) => {
         mainWindow.setSize(900, 600);
         mainWindow.setResizable(true);
       } else if (data.code === 99) { // 登陆异常
-        return reject(new Error(data));
         log.error(data);
       }
       return resolve(data);
