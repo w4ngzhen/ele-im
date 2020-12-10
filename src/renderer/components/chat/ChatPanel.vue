@@ -54,7 +54,6 @@ export default {
 
 .ele-im__chat-panel .ele-im__chat-panel-title {
   height: 60px;
-  border-top: 1px #EEEEEE solid;
   width: 100%;
 }
 

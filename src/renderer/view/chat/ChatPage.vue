@@ -129,6 +129,7 @@ export default {
   height: 100%;
   float: left;
   border: 1px #EEEEEE solid;
+  border-top: 0;
 }
 
 .ele-im__info-search {

@@ -59,6 +59,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 600,
     width: 400,
+    frame: false, // 无边框
     useContentSize: true,
     webPreferences: {
       nodeIntegration: true,
