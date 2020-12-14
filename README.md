@@ -2,6 +2,12 @@
 
 > An electron element-ui IM app.
 
+#### 截图
+
+![](https://cdn.jsdelivr.net/gh/w4ngzhen/CDN/images/readme/im-login.png)
+
+![](https://cdn.jsdelivr.net/gh/w4ngzhen/CDN/images/readme/im-main.png)
+
 #### Build Setup
 
 ``` bash
