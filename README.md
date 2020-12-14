@@ -4,7 +4,7 @@
 
 #### 截图
 
-![](https://cdn.jsdelivr.net/gh/w4ngzhen/CDN/images/readme/im-login.png)
+<img src="https://cdn.jsdelivr.net/gh/w4ngzhen/CDN/images/readme/im-login.png" style="zoom:33%;" />
 
 ![](https://cdn.jsdelivr.net/gh/w4ngzhen/CDN/images/readme/im-main.png)
 
