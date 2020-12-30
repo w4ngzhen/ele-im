@@ -8,11 +8,11 @@
     </div>
     <div class="ele-im__recent-chat-info">
       <div class="chat-title-line">
-        <div class="title-div"><p class="ele-im__overflow-p">{{ title }}</p></div>
-        <div class="datetime-div"><p class="ele-im__overflow-p">{{ datetime }}</p></div>
+        <p class="ele-im__overflow-p ele-im__chat-title-name">{{ title }}</p>
+        <p class="ele-im__overflow-p ele-im__chat-message-time">{{ datetime }}</p>
       </div>
       <div class="chat-abstract-line">
-        <div class="abstract-div"><p class="ele-im__overflow-p">{{ abstract }}</p></div>
+        <p class="ele-im__overflow-p ele-im__chat-abstract-content">{{ abstract }}</p>
       </div>
     </div>
   </div>
@@ -53,32 +53,11 @@ export default {
 
 <style scoped>
 
-.ele-im__recent-chat {
-  display: flex; /* flex 布局 */
-  width: 235px;
-  height: 55px;
-  overflow: hidden;
-  transform: translate(0, 0); /* 修复提示消息定位问题 */
-}
-
 .ele-im__overflow-p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0 auto;
-}
-
-
-.ele-im__recent-chat-avatar-wrapper {
-  width: 55px;
-  height: 55px;
-  padding: 5px;
-}
-
-.ele-im__recent-chat-avatar-wrapper img {
-  width: 45px;
-  height: 45px;
-  border-radius: 5px;
 }
 
 .ele-im__recent-chat-unread-number {
@@ -94,35 +73,59 @@ export default {
   text-align: center;
 }
 
+.ele-im__recent-chat {
+  display: flex; /* flex 布局 */
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+  transform: translate(0, 0); /* 修复提示消息定位问题 */
+}
+
+.ele-im__recent-chat-avatar-wrapper {
+  width: 55px;
+  height: 55px;
+  padding: 5px;
+}
+
+.ele-im__recent-chat-avatar-wrapper img {
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+}
+
 .ele-im__recent-chat-info {
-  width: 180px;
+  width: calc(100% - 55px); /* 100%指该组件宽度，55px指头像Wrapper宽度 */
   height: 55px;
 }
 
 .ele-im__recent-chat-info .chat-title-line {
   display: flex;
 
-  width: 180px;
+  width: 100%; /* 100%指ele-im__recent-chat-info宽度 */
   height: 30px;
 
   line-height: 30px;
 }
 
-.ele-im__recent-chat-info .chat-title-line .title-div p {
-  width: 135px;
-  height: 30px;
-}
-
-.ele-im__recent-chat-info .chat-title-line .datetime-div p {
-  width: 45px;
-  height: 30px;
+.chat-title-line .ele-im__chat-title-name {
+  width: calc(100% - 45px); /* 100%指chat-title-line宽度，45px指message-time宽度 */
   font-size: 14px;
 }
 
+.chat-title-line .ele-im__chat-message-time {
+  width: 45px;
+  font-size: 12px;
+}
 
 .ele-im__recent-chat-info .chat-abstract-line {
-  width: 180px;
+  width: 100%; /* 100%指ele-im__recent-chat-info */
   height: 25px;
+
+  line-height: 25px;
+
+}
+
+.chat-abstract-line .ele-im__chat-abstract-content {
   font-size: 14px;
   color: #8d8c8c;
 }

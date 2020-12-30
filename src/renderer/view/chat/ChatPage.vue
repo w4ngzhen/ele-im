@@ -145,7 +145,7 @@ export default {
 .ele-im__recent-chat-list {
   height: calc(100% - 60px);
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 
