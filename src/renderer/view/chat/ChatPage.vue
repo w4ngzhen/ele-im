@@ -43,7 +43,7 @@ export default {
         avatar: '',
         title: '' + idx + '-Title这是一个很长很长的标题很长很长的标题',
         abstract: '这是一个段比较长的数据，很长很长',
-        datetime: '2020-10-10 23:23:23',
+        messageTime: '2020-10-10 23:23:23',
         unreadNumber: 8
       };
       this.$store.commit('addRecentChat', item);

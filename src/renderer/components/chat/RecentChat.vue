@@ -9,7 +9,7 @@
     <div class="ele-im__recent-chat-info">
       <div class="chat-title-line">
         <p class="ele-im__overflow-p ele-im__chat-title-name">{{ title }}</p>
-        <p class="ele-im__overflow-p ele-im__chat-message-time">{{ datetime }}</p>
+        <p class="ele-im__overflow-p ele-im__chat-message-time">{{ messageTime }}</p>
       </div>
       <div class="chat-abstract-line">
         <p class="ele-im__overflow-p ele-im__chat-abstract-content">{{ abstract }}</p>
@@ -43,9 +43,9 @@ export default {
     abstract() {
       return this._.get(this.data, 'abstract', '');
     },
-    datetime() {
-      let datetime = this._.get(this.data, 'datetime', '');
-      return this.$dateHelper.chatListItemTimeFormatter(datetime);
+    messageTime() {
+      let messageTime = this._.get(this.data, 'messageTime', '');
+      return this.$dateHelper.chatListItemTimeFormatter(messageTime);
     }
   }
 };
