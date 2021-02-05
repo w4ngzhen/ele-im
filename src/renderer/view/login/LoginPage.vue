@@ -1,29 +1,35 @@
 <template>
-  <div>
-    <el-row style="margin: 30px 0 10px 0;text-align: center">
-      <span class="ele-im__label-text">
-        {{ loginLabel }}
-      </span>
-    </el-row>
-    <el-row>
-      <account-login class="ele-im__login-component"
-                     @loginSuccess="accountLoginSuccess"/>
-    </el-row>
-    <el-divider>或</el-divider>
-    <el-row>
-      <fingerprint-login
-          class="ele-im__login-component"/>
-    </el-row>
+  <div class="ele-im__login-page">
+    <client-header class="ele-im__login-page-header"
+                   :border-bottom="'none'"
+                   :bar-head-background-color="'#1E90FF'"
+                   :bar-tail-background-color="'#FFF'"
+    />
+    <div class="ele-im__login-page-content">
+      <div class="ele-im__login-page-content-left">
+        <img :src="backgroundImage" alt="" width="300px" height="300px">
+      </div>
+      <div class="ele-im__login-page-content-right">
+        <account-login class="ele-im__login-component"
+                       @loginSuccess="accountLoginSuccess"/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import AccountLogin from "../../components/login/AccountLogin";
 import FingerprintLogin from "../../components/login/FingerprintLogin";
+import ClientHeader from "../../components/layout/header/ClientHeader";
 
 export default {
   name: "LoginPage",
-  components: {FingerprintLogin, AccountLogin},
+  components: {ClientHeader, FingerprintLogin, AccountLogin},
+  computed: {
+    backgroundImage() {
+      return require('@/assets/img/login-page-center.png');
+    }
+  },
   data() {
     return {
       loginLabel: 'ELE IM',
@@ -38,6 +44,7 @@ export default {
         console.log(data);
         if (data.code === 0) {
           this.$router.push('/chat');
+          d;
         } else {
           this.$message.error(data.message);
         }
@@ -54,13 +61,39 @@ export default {
 </script>
 
 <style scoped>
-.ele-im__label-text {
-  font-size: 60px;
-  font-weight: bolder;
-  color: #262626;
+.ele-im__login-page {
+  width: 100%;
+  height: 100%;
+}
+
+.ele-im__login-page-header {
+  width: 100%;
+  height: 30px;
+}
+
+.ele-im__login-page-content {
+  width: 100%;
+  height: calc(100% - 30px); /* 整体高度 减去 header高度 */
+  display: flex;
+}
+
+.ele-im__login-page-content-left {
+  width: calc(100% - 400px);
+  height: 100%;
+  background-color: #1E90FF;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ele-im__login-page-content-right {
+  width: 400px;
+  height: 100%;
 }
 
 .ele-im__login-component {
   margin: 10px 20px 0 20px;
 }
+
 </style>

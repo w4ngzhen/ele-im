@@ -34,9 +34,7 @@ ipcMain.handle('LoginCheckSuccess', (event, loginUser) => {
 
     wsClient.on('LoginComplete', data => {
       if (data.code === 0) {
-        log.log('登录完成');
-        mainWindow.setSize(900, 600);
-        mainWindow.setResizable(true);
+        log.debug('登录完成');
       } else if (data.code === 99) { // 登陆异常
         log.error(data);
       }
@@ -57,8 +55,8 @@ function createWindow() {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
+    width: 900,
     height: 600,
-    width: 400,
     frame: false, // 无边框
     useContentSize: true,
     webPreferences: {

@@ -4,7 +4,6 @@
       <aside-menu/>
     </div>
     <div class="ele-im__right-content">
-
       <client-header class="ele-im__right-client-header"/>
       <div class="ele-im__right-page-content">
         <keep-alive>
